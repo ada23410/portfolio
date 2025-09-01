@@ -154,7 +154,7 @@ import Card from '@/components/Blog/Card.vue'
             .triangle{
                 width: 100%;
                 max-width: 387px; 
-                aspect-ratio: 387 / 370;   // 原始比例 (大概 1.05:1)
+                aspect-ratio: 387 / 370;   
                 background-color: $color-text-light;
                 -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
                 clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
@@ -162,10 +162,10 @@ import Card from '@/components/Blog/Card.vue'
             }
         }
         .inorganic {
-            --h: clamp(540px, 30vw, 630px);   // 整體高度（響應式）
-            --w: clamp(260px, 20vw, 260px);   // 每個膠囊寬度
-            --r: 90px;                         // 膠囊的圓角
-            --overlap: 10px;                   // 重疊量（越大縫隙越小）
+            --h: clamp(540px, 30vw, 630px);   // 高度（響應式）
+            --w: clamp(260px, 20vw, 260px);   // 寬度
+            --r: 90px;                        // 圓角
+            --overlap: 10px;                  // 重疊量（越大縫隙越小）
             display: flex;
             align-items: center;
             justify-content: center;
@@ -174,7 +174,7 @@ import Card from '@/components/Blog/Card.vue'
                 width: var(--w);
                 height: var(--h);
                 border-radius: calc(var(--r) * 1.5);
-                background: $color-text-light;                  // 灰色底
+                background: $color-text-light;                 
                 position: relative;
             }
             .pill + .pill {
