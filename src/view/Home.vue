@@ -280,6 +280,7 @@ onBeforeUnmount(() => {
             }
         }
         .look-more {
+            text-align: left;
             --gap: .75rem;     /* 文字與箭頭間距 */
             --dur: .36s;       /* 動畫時間 */
             a {
@@ -294,7 +295,6 @@ onBeforeUnmount(() => {
                     margin-right: .25rem;
                     transition: transform var(--dur) ease;
                 }
-
                 .arrow {
                     font-size: $font-size-xxl;
                     position: relative;
@@ -315,10 +315,9 @@ onBeforeUnmount(() => {
                         }
                     }
                 }
-
                 &:hover,
                 &:focus-visible {
-                    color: $color-accent;
+                    color: $color-text;
                 .description {
                     transform: translateX(.2rem);
                 }
