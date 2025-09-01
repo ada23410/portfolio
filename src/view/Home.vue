@@ -24,8 +24,31 @@
             </div>
         </div>
         <div class="resources">
-            <div class="title">Resourse</div>
+            <div class="resources-title">Resourse</div>
             <Card />
+            <div class="look-more">
+                <a href="">
+                    <div class="description">DISCOVER RESOURCES</div>
+                    <div class="arrow">-></div>
+                </a>
+            </div>
+        </div>
+        <div class="about">
+            <div class="about-title">About</div>
+            <div class="inorganic">
+                <span class="pill"></span>
+                <span class="pill"></span>
+                <span class="pill"></span> 
+                <span class="pill"></span>
+                <span class="pill"></span>
+                <span class="pill"></span>
+            </div>
+            <div class="look-more">
+                <a href="">
+                    <div class="description">DISCOVER ABOUT ME</div>
+                    <div class="arrow">-></div>
+                </a>
+            </div>
         </div>
     </div>
 </template>
@@ -64,13 +87,37 @@ import Card from '@/components/Blog/Card.vue'
             color: $color-text;
         }
     }
-    .kv-section{
+    .kv-section, .resources, .about{
         position: relative;
         margin-bottom: 8rem;
         .title {
             position: absolute;
             left: 50%;
             top: 15%;
+            transform: translateX(-50%);
+            font-size: 15rem;
+            font-weight: 800;
+            letter-spacing: -10px;
+            font-style: italic;
+            color: $color-bg-alt;
+            z-index: 0;  
+        }
+        .resources-title {
+            position: absolute;
+            left: 50%;
+            top: -3%;
+            transform: translateX(-50%);
+            font-size: 15rem;
+            font-weight: 800;
+            letter-spacing: -10px;
+            font-style: italic;
+            color: $color-bg-alt;
+            z-index: 0;  
+        }
+        .about-title {
+            position: absolute;
+            left: 50%;
+            top: 0%;
             transform: translateX(-50%);
             font-size: 15rem;
             font-weight: 800;
@@ -114,6 +161,26 @@ import Card from '@/components/Blog/Card.vue'
                 align-self: flex-start;
             }
         }
+        .inorganic {
+            --h: clamp(540px, 30vw, 630px);   // 整體高度（響應式）
+            --w: clamp(260px, 20vw, 260px);   // 每個膠囊寬度
+            --r: 90px;                         // 膠囊的圓角
+            --overlap: 10px;                   // 重疊量（越大縫隙越小）
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10rem 0;
+            .pill {
+                width: var(--w);
+                height: var(--h);
+                border-radius: calc(var(--r) * 1.5);
+                background: $color-text-light;                  // 灰色底
+                position: relative;
+            }
+            .pill + .pill {
+                margin-left: calc(-1 * var(--overlap));
+            }
+        }
         .look-more {
             a {
                 display: inline-flex;
@@ -129,21 +196,6 @@ import Card from '@/components/Blog/Card.vue'
                     font-size: $font-size-xxl;
                 }
             }
-        }
-    }
-    .resources {
-        position: relative;
-        .title {
-            position: absolute;
-            left: 50%;
-            top: -3%;
-            transform: translateX(-50%);
-            font-size: 15rem;
-            font-weight: 800;
-            letter-spacing: -10px;
-            font-style: italic;
-            color: $color-bg-alt;
-            z-index: 0;  
         }
     }
 }
