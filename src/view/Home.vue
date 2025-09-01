@@ -6,7 +6,7 @@
                 <h2>Developing with Precision.</h2>
             </div>
             <div>
-                <p>專注於體驗細節與效能品質，將設計與開發融入可靠的數位服務，<br>讓每一次互動都兼具人性的溫度與科技的精準。</p>
+                <p>專注於體驗細節與效能品質，將設計與開發融入可靠的數位服務，讓每一次互動都兼具人性的溫度與科技的精準。</p>
             </div>
         </div>
         <div class="kv-section">
@@ -24,6 +24,7 @@
             </div>
         </div>
         <div class="resources">
+            <div class="title">Resourse</div>
             <Card />
         </div>
     </div>
@@ -38,7 +39,7 @@ import Card from '@/components/Blog/Card.vue'
 
 
 .container {
-    padding: 8rem 8rem;
+    padding: 10rem 14rem;
     background-color: $color-bg;
     .Hero-section {
         display: flex;
@@ -56,14 +57,16 @@ import Card from '@/components/Blog/Card.vue'
             width: 70%;
         }
         p {
+            max-width: 26rem;
             font-size: $font-size-base;
             line-height: 2rem;
             font-weight: 400;
             color: $color-text;
         }
     }
-    .kv-section {
+    .kv-section{
         position: relative;
+        margin-bottom: 8rem;
         .title {
             position: absolute;
             left: 50%;
@@ -84,23 +87,27 @@ import Card from '@/components/Blog/Card.vue'
             min-height: 600px;
             display: flex;
             justify-content: space-between;
+            gap: 2rem;
             .square {
-                width: 387px;
-                height: 387px;
+                width: 100%;
+                max-width: 387px;                
+                aspect-ratio: 1 / 1;      
                 background-color: $color-text-light;
                 border-radius: 60px;
                 align-self: center;
             }
             .circle {
-                width: 387px;
-                height: 387px;
+                width: 100%;
+                max-width: 387px; 
+                aspect-ratio: 1 / 1;
                 background-color: $color-text-light;
                 border-radius: 50%;
                 align-self: flex-end;
             }
             .triangle{
-                width: 387px;
-                height: 370px;
+                width: 100%;
+                max-width: 387px; 
+                aspect-ratio: 387 / 370;   // 原始比例 (大概 1.05:1)
                 background-color: $color-text-light;
                 -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
                 clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
@@ -122,6 +129,21 @@ import Card from '@/components/Blog/Card.vue'
                     font-size: $font-size-xxl;
                 }
             }
+        }
+    }
+    .resources {
+        position: relative;
+        .title {
+            position: absolute;
+            left: 50%;
+            top: -3%;
+            transform: translateX(-50%);
+            font-size: 15rem;
+            font-weight: 800;
+            letter-spacing: -10px;
+            font-style: italic;
+            color: $color-bg-alt;
+            z-index: 0;  
         }
     }
 }

@@ -23,7 +23,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 8rem;
+    padding: 1rem 14rem;
     background-color: $color-bg;
     .logo {
         a {
