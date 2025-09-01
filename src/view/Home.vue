@@ -9,33 +9,39 @@
                 <p>專注於體驗細節與效能品質，將設計與開發融入可靠的數位服務，讓每一次互動都兼具人性的溫度與科技的精準。</p>
             </div>
         </div>
-        <div class="kv-section">
+        <div class="kv-section" ref="projectSection">
             <div class="title">Project</div>
             <div class="project-card">
-                <div class="square"></div>
-                <div class="circle"></div>
-                <div class="triangle"></div>
+                <div class="square" data-speed="0.15"></div>
+                <div class="circle" data-speed="0.25"></div>
+                <div class="triangle"  data-speed="0.35"></div>
             </div>
             <div class="look-more">
                 <a href="">
                     <div class="description">DISCOVER PROJECTS</div>
-                    <div class="arrow">-></div>
+                    <div class="arrow" aria-hidden="true">
+                        <i>→</i><i>→</i><i>→</i>
+                    </div>
                 </a>
             </div>
         </div>
-        <div class="resources">
+        <div class="resources" ref="resourcesRef">
             <div class="resources-title">Resourse</div>
-            <Card />
+            <div class="resource-card" data-speed="0.22">
+                <Card />
+            </div>
             <div class="look-more">
                 <a href="">
                     <div class="description">DISCOVER RESOURCES</div>
-                    <div class="arrow">-></div>
+                    <div class="arrow" aria-hidden="true">
+                        <i>→</i><i>→</i><i>→</i>
+                    </div>
                 </a>
             </div>
         </div>
-        <div class="about">
+        <div class="about" ref="aboutRef">
             <div class="about-title">About</div>
-            <div class="inorganic">
+            <div class="inorganic" data-speed="0.40">
                 <span class="pill"></span>
                 <span class="pill"></span>
                 <span class="pill"></span> 
@@ -46,7 +52,9 @@
             <div class="look-more">
                 <a href="">
                     <div class="description">DISCOVER ABOUT ME</div>
-                    <div class="arrow">-></div>
+                    <div class="arrow" aria-hidden="true">
+                        <i>→</i><i>→</i><i>→</i>
+                    </div>
                 </a>
             </div>
         </div>
@@ -54,12 +62,99 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import Card from '@/components/Blog/Card.vue'
+
+    /** 對一個區塊啟用視差（
+     *  sectionEl: 區塊根節點 (ref.value)
+     *  selector:  區塊內要做視差的元素（可多個）
+     *  strength:  整體位移強度（px）
+     */
+    function useParallaxSection(sectionEl, selector, strength = 220) {
+    if (!sectionEl) return () => {}
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        const els = Array.from(sectionEl.querySelectorAll(selector))
+        const layers = els.map(el => ({
+            el,
+            speed: Number(el.dataset.speed || 0.2),
+            y: 0,
+            target: 0
+    }))
+    let ticking = false
+
+    const getProgress = () => {
+        const r = sectionEl.getBoundingClientRect()
+        const vh = window.innerHeight
+        const sectionCenter = r.top + r.height / 2
+        const viewportCenter = vh / 2
+        const dist = sectionCenter - viewportCenter
+        const maxDist = (vh + r.height) / 2
+        const p = dist / maxDist
+        return Math.max(-1, Math.min(1, p)) // clamp -1 ~ 1
+    }
+
+    const update = () => {
+        const p = getProgress()
+        for (const s of layers) {
+        s.target = p * strength * s.speed
+        s.y += (s.target - s.y) * 0.12 // 慣性
+        s.el.style.transform = reduced ? '' : `translate3d(0, ${s.y.toFixed(2)}px, 0)`
+        }
+        ticking = false
+    }
+
+    const onScroll = () => {
+        if (ticking) return
+        ticking = true
+        requestAnimationFrame(update)
+    }
+
+    // 初始化
+    els.forEach(el => (el.style.willChange = 'transform'))
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    update()
+
+    // 回傳清理函式
+    return () => {
+        window.removeEventListener('scroll', onScroll)
+        window.removeEventListener('resize', onScroll)
+    }
+}
+
+/* ===== 啟用兩個區塊 ===== */
+const projectSection = ref(null)
+const resourcesRef   = ref(null)
+const aboutRef   = ref(null)
+
+// 收集清理函式
+const cleanups = []
+
+onMounted(() => {
+    if (projectSection.value) {
+        cleanups.push(
+            useParallaxSection(projectSection.value, '.square, .circle, .triangle', 220)
+        )
+    }
+    if (resourcesRef.value) {
+        cleanups.push(
+            useParallaxSection(resourcesRef.value, '.resource-card', 220)
+        )
+    }
+    if (aboutRef.value) {
+        cleanups.push(
+            useParallaxSection(aboutRef.value, '.inorganic', 220)
+        )
+    }
+})
+
+onBeforeUnmount(() => {
+  cleanups.forEach(fn => fn())
+})
 </script>
 
 <style lang="scss" scoped>
 @use "@/assets/css/components/variables" as *;
-
 
 .container {
     padding: 10rem 14rem;
@@ -135,6 +230,9 @@ import Card from '@/components/Blog/Card.vue'
             display: flex;
             justify-content: space-between;
             gap: 2rem;
+            > div { 
+                will-change: transform; 
+            }
             .square {
                 width: 100%;
                 max-width: 387px;                
@@ -182,18 +280,57 @@ import Card from '@/components/Blog/Card.vue'
             }
         }
         .look-more {
+            --gap: .75rem;     /* 文字與箭頭間距 */
+            --dur: .36s;       /* 動畫時間 */
             a {
                 display: inline-flex;
-                justify-content: flex-end;
                 align-items: center;
+                gap: var(--gap);
                 text-decoration: none;
                 color: $color-text;
                 .description {
                     font-size: $font-size-xxl;
-                    margin-right: 1rem;
+                    font-weight: 500;
+                    margin-right: .25rem;
+                    transition: transform var(--dur) ease;
                 }
+
                 .arrow {
                     font-size: $font-size-xxl;
+                    position: relative;
+                    display: inline-grid;
+                    grid-auto-flow: column;
+                    grid-auto-columns: 1.2em;
+                    overflow: hidden;
+                    width: 1.2em;                /* 預設只露出第一支箭頭 */
+                    transition: width var(--dur) ease;
+                    i {
+                        display: inline-block;
+                        transform: translateX(-100%);
+                        opacity: 0;
+                        transition: transform var(--dur) ease, opacity var(--dur) ease;
+                        &:nth-child(1) {
+                        transform: translateX(0);
+                        opacity: 1;
+                        }
+                    }
+                }
+
+                &:hover,
+                &:focus-visible {
+                    color: $color-accent;
+                .description {
+                    transform: translateX(.2rem);
+                }
+                .arrow {
+                    width: 4em; /* 展開顯示三支箭頭 */
+                        i {
+                            transform: translateX(0);
+                            opacity: 1;
+                            &:nth-child(2) { transition-delay: .04s; }
+                            &:nth-child(3) { transition-delay: .08s; }
+                        }
+                    }
                 }
             }
         }

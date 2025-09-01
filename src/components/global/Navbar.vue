@@ -20,6 +20,9 @@
 @use "@/assets/css/components/variables" as *;
 
 .navbar {
+    position: sticky;
+    top: 0;                 // 黏在視窗最上方
+    z-index: 1000;          // 蓋過內容
     display: flex;
     justify-content: space-between;
     align-items: center;

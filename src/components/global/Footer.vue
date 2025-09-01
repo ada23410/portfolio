@@ -20,7 +20,7 @@
 
 footer {
     padding: 6rem 14rem;
-    min-height: 40vh;
+    min-height: 30vh;
     background-color: $color-bg-dark;
     display: flex;
     justify-content: space-between;
@@ -41,10 +41,11 @@ footer {
     .menu {
         ul{
             li {
-                margin-bottom: 1rem;
+                margin-bottom: 1.5rem;
                 a{
                     text-decoration: none;
                     font-size: $font-size-xl;
+                    font-weight: 400;
                     color: $color-text-white;
                 }
             }
