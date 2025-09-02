@@ -2,7 +2,7 @@
     <nav class="navbar">
         <div class="logo">
             <div class="aida">
-                <a href="">ɐida</a>
+                <router-link to="/">ɐida</router-link>      
             </div>
         </div>
         <div class="menu">
@@ -89,33 +89,33 @@
             color: $color-text;
             display: inline-block;
             .flip {
-            --dur: .55s;            /* 動畫時間 */
-            --h: 1.5em;             /* 視窗/單行高度：要與字高相符 */
-            position: relative;
-            display: inline-block;
-            height: var(--h);
-            line-height: var(--h);
-            overflow: hidden;
-            &::before,
-            &::after {
-                content: "";
-                position: absolute; left: 0; right: 0;
-                height: 30%; pointer-events: none; z-index: 1;
-                transition: opacity var(--dur) ease;
-            }
-            &::before { top: 0;    background: linear-gradient(to bottom, var(--shade), transparent); opacity: .2; }
-            &::after  { bottom: 0; background: linear-gradient(to top,    var(--shade), transparent); opacity: .2; }
-            .reel {
-                display: grid;
-                grid-auto-rows: var(--h);     /* 每格剛好一行高 */
-                transform: translateY(0);     /* 初始顯示第一行（.item--idle） */
-                transition: transform var(--dur) cubic-bezier(.2,.7,.15,1);
-                will-change: transform;
-            }
-            .item {
+                --dur: .55s;            /* 動畫時間 */
+                --h: 1.5em;             /* 視窗/單行高度：要與字高相符 */
+                position: relative;
+                display: inline-block;
                 height: var(--h);
                 line-height: var(--h);
-            }
+                overflow: hidden;
+                &::before,
+                &::after {
+                    content: "";
+                    position: absolute; left: 0; right: 0;
+                    height: 30%; pointer-events: none; z-index: 1;
+                    transition: opacity var(--dur) ease;
+                }
+                &::before { top: 0;    background: linear-gradient(to bottom, var(--shade), transparent); opacity: .2; }
+                &::after  { bottom: 0; background: linear-gradient(to top,    var(--shade), transparent); opacity: .2; }
+                .reel {
+                    display: grid;
+                    grid-auto-rows: var(--h);     /* 每格剛好一行高 */
+                    transform: translateY(0);     /* 初始顯示第一行（.item--idle） */
+                    transition: transform var(--dur) cubic-bezier(.2,.7,.15,1);
+                    will-change: transform;
+                }
+                .item {
+                    height: var(--h);
+                    line-height: var(--h);
+                }
             }
         }
         &:hover a .flip .reel,
