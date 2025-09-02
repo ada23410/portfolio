@@ -8,7 +8,7 @@
         <div class="menu">
             <ul>
                 <li>
-                    <a href="">
+                    <router-link to="/projects">
                         <span class="flip">
                             <span class="reel">
                                 <span class="item">PROJECT</span>
@@ -16,7 +16,7 @@
                                 <span class="item">PROJECT</span> 
                             </span>
                         </span>
-                    </a>
+                    </router-link>
                 </li>
                 <li>
                     <a href="">
