@@ -25,14 +25,14 @@ const routes = [
     //         title:'Resources'
     //     } 
     // },
-    // { 
-    //     path: '/about',       
-    //     name: 'about',     
-    //     component: () => import('@/views/About.vue'),     
-    //     meta:{ 
-    //         title:'About'
-    //     } 
-    // },
+    { 
+        path: '/about',       
+        name: 'about',     
+        component: () => import('@/view/About.vue'),     
+        meta:{ 
+            title:'About'
+        } 
+    },
     // {   
     //     path: '/contact',     
     //     name: 'contact',   

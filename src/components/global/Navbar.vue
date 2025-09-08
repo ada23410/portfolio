@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <router-link to="/about">
                         <span class="flip">
                             <span class="reel">
                                 <span class="item">ABOUT</span> 
@@ -38,7 +38,7 @@
                                 <span class="item">ABOUT</span> 
                             </span>
                         </span>
-                    </a>
+                    </router-link>
                 </li>
                 <li>
                     <a href="">
