@@ -17,14 +17,14 @@ const routes = [
             title:'Projects'
         } 
     },
-    // { 
-    //     path: '/resources',   
-    //     name: 'resources', 
-    //     component: () => import('@/view/Resources.vue'), 
-    //     meta:{
-    //         title:'Resources'
-    //     } 
-    // },
+    { 
+        path: '/resources',   
+        name: 'resources', 
+        component: () => import('@/view/Resources.vue'), 
+        meta:{
+            title:'Resources'
+        } 
+    },
     { 
         path: '/about',       
         name: 'about',     

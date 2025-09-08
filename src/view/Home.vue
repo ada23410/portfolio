@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="kv-section" ref="projectSection">
-            <div class="title">Project</div>
+            <div class="section-title">Project</div>
             <div class="project-card">
                 <div class="square" data-speed="0.15"></div>
                 <div class="circle" data-speed="0.25"></div>
@@ -28,7 +28,42 @@
         <div class="resources" ref="resourcesRef">
             <div class="resources-title">Resourse</div>
             <div class="resource-card" data-speed="0.22">
-                <Card />
+                <div class="card">
+                    <div class="card-head">
+                        <div class="img"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="title">
+                            <div class="text">Title</div>
+                            <div class="time">2025.06.01_______</div>
+                        </div>
+                        <div class="description">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure error assumenda non consequuntur natus! Expedita accusamus unde sit explicabo neque qui? Distinctio quos consectetur libero, reprehenderit at id aliquam possimus!</p>
+                            <div class="tag">
+                                <span>tag</span>
+                                <span>tag</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-head">
+                        <div class="img"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="title">
+                            <div class="text">Title</div>
+                            <div class="time">2025.06.01_______</div>
+                        </div>
+                        <div class="description">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure error assumenda non consequuntur natus! Expedita accusamus unde sit explicabo neque qui? Distinctio quos consectetur libero, reprehenderit at id aliquam possimus!</p>
+                            <div class="tag">
+                                <span>tag</span>
+                                <span>tag</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="look-more">
                 <a href="">
@@ -63,7 +98,6 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-import Card from '@/components/Blog/Card.vue'
 
     /** 對一個區塊啟用視差（
      *  sectionEl: 區塊根節點 (ref.value)
@@ -185,7 +219,7 @@ onBeforeUnmount(() => {
     .kv-section, .resources, .about{
         position: relative;
         margin-bottom: 8rem;
-        .title {
+        .section-title {
             position: absolute;
             left: 50%;
             top: 15%;
@@ -257,6 +291,63 @@ onBeforeUnmount(() => {
                 -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
                 clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
                 align-self: flex-start;
+            }
+        }
+        .resource-card {
+            position: relative;
+            z-index: 1;     
+            padding: 10rem 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 每行 2 欄 */
+            gap: 5rem; /* 卡片間距 */
+            .card {
+                max-width: 540px;
+                width: 100%;
+                .img {
+                    width: 100%;
+                    aspect-ratio: 1 / 1; 
+                    border-radius: 60px;
+                    background-color: $color-text-light;
+                }
+                .card-body {
+                    margin-top: 1.5rem;
+                    .title {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: baseline;
+                        .text {
+                            font-size: $font-size-xxl;
+                            font-weight: 500;
+                        }
+                        .time {
+                            font-size: $font-size-lg;
+                            font-weight: 400;
+                            color: $color-text-light;
+                        }
+                    }
+                    .description {
+                        margin-top: 1rem;
+                        p {
+                            font-size: $font-size-base;
+                            font-weight: 300;
+                            color: $color-text-light;
+                            text-align: justify;
+                            line-height: 1.5rem;
+                        }
+                    }
+                    .tag {
+                        margin-top: 1.5rem;
+                        font-size: $font-size-base;
+                        font-weight: 400;
+                        color: $color-text-light;
+                        span {
+                            padding: .5rem 1rem;
+                            border: .5px solid $color-border;
+                            border-radius: 50px;
+                            margin-right: .5rem;
+                        }
+                    }
+                }
             }
         }
         .inorganic {

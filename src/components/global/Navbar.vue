@@ -19,7 +19,7 @@
                     </router-link>
                 </li>
                 <li>
-                    <a href="">
+                    <router-link to="/resources">
                         <span class="flip">
                             <span class="reel">
                                 <span class="item">RESOURCES</span>
@@ -27,7 +27,7 @@
                                 <span class="item">RESOURCES</span> 
                             </span>
                         </span>
-                    </a>
+                    </router-link>
                 </li>
                 <li>
                     <router-link to="/about">

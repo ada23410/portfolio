@@ -36,6 +36,114 @@
                 </div>
             </div>
         </div>
+        <div class="card">
+            <div class="card-head">
+                <div class="img"></div>
+            </div>
+            <div class="card-body">
+                <div class="title">
+                    <div class="text">Title</div>
+                    <div class="time">2025.06.01_______</div>
+                </div>
+                <div class="description">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure error assumenda non consequuntur natus! Expedita accusamus unde sit explicabo neque qui? Distinctio quos consectetur libero, reprehenderit at id aliquam possimus!</p>
+                    <div class="tag">
+                        <span>tag</span>
+                        <span>tag</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-head">
+                <div class="img"></div>
+            </div>
+            <div class="card-body">
+                <div class="title">
+                    <div class="text">Title</div>
+                    <div class="time">2025.06.01_______</div>
+                </div>
+                <div class="description">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure error assumenda non consequuntur natus! Expedita accusamus unde sit explicabo neque qui? Distinctio quos consectetur libero, reprehenderit at id aliquam possimus!</p>
+                    <div class="tag">
+                        <span>tag</span>
+                        <span>tag</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-head">
+                <div class="img"></div>
+            </div>
+            <div class="card-body">
+                <div class="title">
+                    <div class="text">Title</div>
+                    <div class="time">2025.06.01_______</div>
+                </div>
+                <div class="description">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure error assumenda non consequuntur natus! Expedita accusamus unde sit explicabo neque qui? Distinctio quos consectetur libero, reprehenderit at id aliquam possimus!</p>
+                    <div class="tag">
+                        <span>tag</span>
+                        <span>tag</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-head">
+                <div class="img"></div>
+            </div>
+            <div class="card-body">
+                <div class="title">
+                    <div class="text">Title</div>
+                    <div class="time">2025.06.01_______</div>
+                </div>
+                <div class="description">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure error assumenda non consequuntur natus! Expedita accusamus unde sit explicabo neque qui? Distinctio quos consectetur libero, reprehenderit at id aliquam possimus!</p>
+                    <div class="tag">
+                        <span>tag</span>
+                        <span>tag</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-head">
+                <div class="img"></div>
+            </div>
+            <div class="card-body">
+                <div class="title">
+                    <div class="text">Title</div>
+                    <div class="time">2025.06.01_______</div>
+                </div>
+                <div class="description">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure error assumenda non consequuntur natus! Expedita accusamus unde sit explicabo neque qui? Distinctio quos consectetur libero, reprehenderit at id aliquam possimus!</p>
+                    <div class="tag">
+                        <span>tag</span>
+                        <span>tag</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-head">
+                <div class="img"></div>
+            </div>
+            <div class="card-body">
+                <div class="title">
+                    <div class="text">Title</div>
+                    <div class="time">2025.06.01_______</div>
+                </div>
+                <div class="description">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure error assumenda non consequuntur natus! Expedita accusamus unde sit explicabo neque qui? Distinctio quos consectetur libero, reprehenderit at id aliquam possimus!</p>
+                    <div class="tag">
+                        <span>tag</span>
+                        <span>tag</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -46,12 +154,13 @@
     position: relative;
     z-index: 1;     
     padding: 10rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 5rem; 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 每行 2 欄 */
+    gap: 5rem; /* 卡片間距 */
+
     .card {
         max-width: 540px;
+        width: 100%;
         .img {
             width: 100%;
             aspect-ratio: 1 / 1; 
