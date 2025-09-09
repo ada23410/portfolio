@@ -33,15 +33,14 @@ const routes = [
             title:'About'
         } 
     },
-    // {   
-    //     path: '/contact',     
-    //     name: 'contact',   
-    //     component: () => import('@/views/Contact.vue'),   
-    //     meta:{ 
-    //         title:'Contact'
-    //     } 
-    // },
-
+    {   
+        path: '/contact',     
+        name: 'contact',   
+        component: () => import('@/view/Contact.vue'),   
+        meta:{ 
+            title:'Contact'
+        } 
+    },
     // 404
     { 
         path: '/:pathMatch(.*)*', 

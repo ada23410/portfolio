@@ -41,7 +41,7 @@
                     </router-link>
                 </li>
                 <li>
-                    <a href="">
+                    <router-link to="/contact">
                         <span class="flip">
                             <span class="reel">
                                 <span class="item">CONTACT</span>
@@ -49,7 +49,7 @@
                                 <span class="item">CONTACT</span> 
                             </span>
                         </span>
-                    </a>
+                    </router-link>
                 </li>
             </ul>
         </div>
