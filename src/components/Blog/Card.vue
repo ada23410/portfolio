@@ -1,151 +1,50 @@
 <template>
     <div class="wrap-box">
-        <div class="card">
-            <div class="card-head">
-                <div class="img"></div>
-            </div>
-            <div class="card-body">
+        <RouterLink
+            v-for="item in items"
+            :key="item.id"
+            class="card-link"
+            :to="{ name: 'resource-info', params: { resourceId: String(item.id) } }"
+            custom
+            v-slot="{ navigate }"
+            >
+            <article
+                class="card"
+                role="link"
+                tabindex="0"
+                @click="navigate"
+                @keydown.enter.space.prevent="navigate"
+                :aria-label="`Open resource ${item.title}`"
+            >
+                <div class="card-head">
+                <div class="img" :style="{ backgroundImage: item.image_url ? `url(${item.image_url})` : '' }"></div>
+                </div>
+                <div class="card-body">
                 <div class="title">
-                    <div class="text">Title</div>
-                    <div class="time">2025.06.01_______</div>
+                    <div class="text">{{ item.title }}</div>
+                    <div class="time">{{ item.published_at }}</div>
                 </div>
                 <div class="description">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure error assumenda non consequuntur natus! Expedita accusamus unde sit explicabo neque qui? Distinctio quos consectetur libero, reprehenderit at id aliquam possimus!</p>
+                    <p>{{ item.description }}</p>
                     <div class="tag">
-                        <span>tag</span>
-                        <span>tag</span>
+                    <span v-for="(t, i) in item.tags" :key="i">{{ t }}</span>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-head">
-                <div class="img"></div>
-            </div>
-            <div class="card-body">
-                <div class="title">
-                    <div class="text">Title</div>
-                    <div class="time">2025.06.01_______</div>
                 </div>
-                <div class="description">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure error assumenda non consequuntur natus! Expedita accusamus unde sit explicabo neque qui? Distinctio quos consectetur libero, reprehenderit at id aliquam possimus!</p>
-                    <div class="tag">
-                        <span>tag</span>
-                        <span>tag</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-head">
-                <div class="img"></div>
-            </div>
-            <div class="card-body">
-                <div class="title">
-                    <div class="text">Title</div>
-                    <div class="time">2025.06.01_______</div>
-                </div>
-                <div class="description">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure error assumenda non consequuntur natus! Expedita accusamus unde sit explicabo neque qui? Distinctio quos consectetur libero, reprehenderit at id aliquam possimus!</p>
-                    <div class="tag">
-                        <span>tag</span>
-                        <span>tag</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-head">
-                <div class="img"></div>
-            </div>
-            <div class="card-body">
-                <div class="title">
-                    <div class="text">Title</div>
-                    <div class="time">2025.06.01_______</div>
-                </div>
-                <div class="description">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure error assumenda non consequuntur natus! Expedita accusamus unde sit explicabo neque qui? Distinctio quos consectetur libero, reprehenderit at id aliquam possimus!</p>
-                    <div class="tag">
-                        <span>tag</span>
-                        <span>tag</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-head">
-                <div class="img"></div>
-            </div>
-            <div class="card-body">
-                <div class="title">
-                    <div class="text">Title</div>
-                    <div class="time">2025.06.01_______</div>
-                </div>
-                <div class="description">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure error assumenda non consequuntur natus! Expedita accusamus unde sit explicabo neque qui? Distinctio quos consectetur libero, reprehenderit at id aliquam possimus!</p>
-                    <div class="tag">
-                        <span>tag</span>
-                        <span>tag</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-head">
-                <div class="img"></div>
-            </div>
-            <div class="card-body">
-                <div class="title">
-                    <div class="text">Title</div>
-                    <div class="time">2025.06.01_______</div>
-                </div>
-                <div class="description">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure error assumenda non consequuntur natus! Expedita accusamus unde sit explicabo neque qui? Distinctio quos consectetur libero, reprehenderit at id aliquam possimus!</p>
-                    <div class="tag">
-                        <span>tag</span>
-                        <span>tag</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-head">
-                <div class="img"></div>
-            </div>
-            <div class="card-body">
-                <div class="title">
-                    <div class="text">Title</div>
-                    <div class="time">2025.06.01_______</div>
-                </div>
-                <div class="description">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure error assumenda non consequuntur natus! Expedita accusamus unde sit explicabo neque qui? Distinctio quos consectetur libero, reprehenderit at id aliquam possimus!</p>
-                    <div class="tag">
-                        <span>tag</span>
-                        <span>tag</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-head">
-                <div class="img"></div>
-            </div>
-            <div class="card-body">
-                <div class="title">
-                    <div class="text">Title</div>
-                    <div class="time">2025.06.01_______</div>
-                </div>
-                <div class="description">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure error assumenda non consequuntur natus! Expedita accusamus unde sit explicabo neque qui? Distinctio quos consectetur libero, reprehenderit at id aliquam possimus!</p>
-                    <div class="tag">
-                        <span>tag</span>
-                        <span>tag</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </article>
+        </RouterLink>
     </div>
 </template>
+
+<script setup>
+const { items } = defineProps({
+    items: { 
+        type: Array, 
+        default: () => [] 
+    }
+})
+console.log('Card items =>', items) // 檢查看看是否有資料
+</script>
 
 <style lang="scss" scoped>
 @use "@/assets/css/components/variables" as *;

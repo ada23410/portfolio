@@ -18,12 +18,19 @@
             </div>
         </div>
         <div class="resources-body">
-            <Card />
+            <Card :items="resources"/>
         </div>
     </div>
 </template>
 <script setup>
+import { ref } from 'vue'
 import Card from '@/components/Blog/Card.vue'
+
+// 先用假資料，之後換成 API 結果
+const resources = ref([
+  { id: 1, title: 'Designing with Empathy', published_at: '2025.06.01_______', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', image_url: '', tags: ['Design','Frontend'] },
+  { id: 2, title: 'Nuxt 3 Data Fetching',   published_at: '2025.06.01_______', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', image_url: '', tags: ['Nuxt.js'] },
+])
 </script>
 <style lang="scss" scoped>
 @use "@/assets/css/components/variables" as *;

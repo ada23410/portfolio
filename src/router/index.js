@@ -25,6 +25,12 @@ const routes = [
             title:'Resources'
         } 
     },
+    {
+        path: '/resources/:resourceId',
+        name: 'resource-info',
+        component: () => import('@/view/ResourcesInfo.vue'),
+        props: route => ({ resourceId: String(route.params.resourceId) })
+    },
     { 
         path: '/about',       
         name: 'about',     
