@@ -310,6 +310,8 @@ onBeforeUnmount(() => {
             z-index: 1;     
             padding: 10rem 0;
             display: grid;
+            justify-items: center;  
+            align-items: center;   
             grid-template-columns: repeat(2, 1fr); /* 每行 2 欄 */
             gap: 5rem; /* 卡片間距 */
             .card {

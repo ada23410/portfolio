@@ -155,9 +155,10 @@
     z-index: 1;     
     padding: 10rem 0;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 每行 2 欄 */
-    gap: 5rem; /* 卡片間距 */
-
+    grid-template-columns: repeat(2, 1fr); 
+    justify-items: center;  
+    align-items: center;   
+    gap: 5rem; 
     .card {
         max-width: 540px;
         width: 100%;
