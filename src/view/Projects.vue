@@ -129,7 +129,18 @@
                 </div>
                 <div class="card-right-03">
                     <div class="card-head">
-                        <div class="triangle-img"></div>
+                        <div class="triangle-svg">
+                            <svg viewBox="0 0 350 350" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M 160 44
+                                        Q 180 15, 200 44
+                                        L 265 214
+                                        Q 270 235, 248 244
+                                        L 96 244
+                                        Q 80 230, 85 215
+                                        Z" 
+                                    fill="#666666"/>
+                            </svg>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="title">
@@ -565,14 +576,15 @@
             }
             .card-right-03 {
                 flex: 1;
-                .triangle-img {
+                .triangle-svg {
                     max-width: 350px;
                     height: 100%;
                     aspect-ratio: 1 / 1; 
-                    background-color: $color-text-light;
-                    border-radius: 50%;
-                    -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-                    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                    align-self: flex-start;
+                    svg {
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
                 .card-body {
                     margin-top: 1.5rem;

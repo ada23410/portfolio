@@ -14,7 +14,18 @@
             <div class="project-card">
                 <div class="square" data-speed="0.15"></div>
                 <div class="circle" data-speed="0.25"></div>
-                <div class="triangle"  data-speed="0.35"></div>
+                <div class="triangle-svg"  data-speed="0.35">
+                    <svg viewBox="0 0 387 370">
+                        <path d="M 193.5 15
+                            Q 208.5 0, 223.5 15
+                            L 372 340
+                            Q 390 370, 323 390
+                            L 15 370
+                            Q 0 360, 15 335
+                            Z" 
+                        fill="#666666"/>
+                    </svg>
+                </div>
             </div>
             <div class="look-more">
                 <a href="">
@@ -283,14 +294,15 @@ onBeforeUnmount(() => {
                 border-radius: 50%;
                 align-self: flex-end;
             }
-            .triangle{
+            .triangle-svg {
                 width: 100%;
                 max-width: 387px; 
-                aspect-ratio: 387 / 370;   
-                background-color: $color-text-light;
-                -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-                clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                aspect-ratio: 387 / 370;
                 align-self: flex-start;
+                svg {
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
         .resource-card {
